@@ -9,6 +9,7 @@ public class ListNode {
 	public ListNode(int x) { val = x;}
 
 	public static ListNode buildList(int[] intList){
+//		if (intList.length==0)  ;
 		int n = intList.length;
 		ListNode[] nodeList = new ListNode[n];
 		// initialize all node
