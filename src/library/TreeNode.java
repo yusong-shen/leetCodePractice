@@ -31,6 +31,31 @@ public class TreeNode {
     	}		
     	return q;
 	}
+
+    // Decodes your encoded data to tree.
+    public static TreeNode deserialize(ArrayList<TreeNode> q) {
+    	if (q.size()==0) return null;
+    	TreeNode root = q.get(0);
+    	int parent = 0;
+    	for (int i = 1; i<q.size(); i++){
+    		if (!q.get(i).equals(null)){
+    			TreeNode node = q.get(i);
+//    			System.out.println(node.val);
+    			// left child's index is odd
+    			if (i%2==1){
+    				q.get(parent).left = node;
+    			} else{
+    				q.get(parent).right = node;
+    			}
+    			q.add(node);
+    		}
+    		if (i%2==0){
+    			parent++;
+    		}
+    	}
+		return root;
+        
+    }
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
