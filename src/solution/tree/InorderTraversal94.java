@@ -16,15 +16,15 @@ public class InorderTraversal94 {
         
     }
     
-    private boolean inorderHelper(TreeNode root){
-    	if (root==null) return true;
+    private void inorderHelper(TreeNode root){
+    	if (root==null) return ;
     	// first, left subtree
-    	if (inorderHelper(root.left)){
-    		// then, current node
-    		list.add(root.val);
-    		return inorderHelper(root.right);
-    	}
-    	return false;
+    	inorderHelper(root.left);
+    	// then, current node
+    	list.add(root.val);
+    	// finally, right tree
+    	inorderHelper(root.right);
+
     }
     
 	public static void main(String[] args) {
