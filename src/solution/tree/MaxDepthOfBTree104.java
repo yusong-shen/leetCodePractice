@@ -1,5 +1,6 @@
-package solution;
+package solution.tree;
 
+import library.TreeNode;
 
 /**
  * Definition for a binary tree node.
@@ -11,10 +12,12 @@ package solution;
  * }
  */
 
-public class maxDepthOfBTree {
+public class MaxDepthOfBTree104 {
 
     public int maxDepth(TreeNode root) {
-		return 0;
+    	if (root == null) return 0;
+    	
+		return Math.max(maxDepth(root.left), maxDepth(root.right))+1;
         
     }
 
@@ -22,11 +25,5 @@ public class maxDepthOfBTree {
 		// TODO Auto-generated method stub
 
 	}
-	
-	public class TreeNode {
-	     int val;
-	     TreeNode left;
-	     TreeNode right;
-	     TreeNode(int x) { val = x; }
-	}
+
 }
