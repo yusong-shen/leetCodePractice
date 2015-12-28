@@ -1,5 +1,7 @@
 package solution.tree;
 
+import java.util.List;
+
 import library.TreeNode;
 
 /**
@@ -29,10 +31,19 @@ public class PathSum112 {
         
     }
     
-
+    
+    
+    public List<List<Integer>> pathSum(TreeNode root, int sum) {
+		return null;
+        
+    }
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+//		int[] tree = {5,4,8,11,null,13,4,7,2,null,null,5,1};
+//		[
+//		   [5,4,11,2],
+//		   [5,8,4,5]
+//		]		
 
 	}
 
