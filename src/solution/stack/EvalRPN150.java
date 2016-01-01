@@ -16,7 +16,7 @@ public class EvalRPN150 {
     		if(OPERATORS.contains(t)){
     			int y = stack.pop();
     			int x = stack.pop();
-    			int result = evaluate(x, y, t);
+    			int result = eval(x, y, t);
     			stack.push(result);
     		} else{
     			stack.push(Integer.parseInt(t));
@@ -26,7 +26,7 @@ public class EvalRPN150 {
         
     }
     
-    private static int evaluate(int x, int y, String operator){
+    private static int eval(int x, int y, String operator){
     	switch(operator){
     	case "+": return x+y;
     	case "-": return x-y;
