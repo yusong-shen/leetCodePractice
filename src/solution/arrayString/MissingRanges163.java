@@ -9,49 +9,22 @@ public class MissingRanges163 {
     public static List<String> findMissingRanges(int[] nums, int lower, int upper) {
     	int n = nums.length;
     	List<String> list = new ArrayList<>();
-    	if (n==0) return list;
-    	if (lower==upper) {
-    		list.add(Integer.toString(lower));
-    		return list;
-    	}
-    	for (int i=0; i<n-1; i++){
-    		int diff = nums[i+1]-nums[i];
-    		if (diff<=1) {
-    			continue;
-    		} else if (diff==2){
-    			list.add(Integer.toString(nums[i]+1));
-    		} else {
-    			String start = (nums[i]==0)?Integer.toString(lower+1):Integer.toString(nums[i]+1);
-    			String end = Integer.toString(nums[i+1]-1);
-    			list.add(start+"->"+end);
+    	int prev = lower;
+    	for (int i=0; i<=n; i++){
+    		int curr = (i==n)? upper+1:nums[i];
+    		if (curr-prev>=2){
+    			String range = rangeHelper(prev+1,curr-1);
+    			list.add(range);
     		}
+    		prev = curr;
     	}
-    	// duplicated - can be solved by add the upper to the end of nums
-    	if (nums[n-1]!=upper){
-    		int diff = upper - nums[n-1];
-    		if (diff==2){
-    			list.add(Integer.toString(nums[n-1]+1));
-    		} else {
-    			String start = (nums[n-1]==0)?Integer.toString(lower):Integer.toString(nums[n-1]+1);
-    			String end = Integer.toString(upper);
-    			list.add(start+"->"+end);
-    		}    		
-    	}
-    	
-    	
     	
 		return list;
         
     }
     
-    private String rangeHelper(int x, int y){
-    	int diff = y - x;
-
-    	if (diff<=1) return null;
-    	if (diff==2) return Integer.toString(x+1);
-    	else{
-    		return Integer.toString(x+1)+"->"+Integer.toString(y+1);
-    	}
+    private static String rangeHelper(int from, int to){
+    	return (from==to)? Integer.toString(from): from + "->" + to;
     	
     }
     
