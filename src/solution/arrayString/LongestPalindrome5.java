@@ -44,9 +44,6 @@ public class LongestPalindrome5 {
      * @return
      */
     private boolean isPalindrome(String s, int start, int end){
-//    	System.out.println(start);
-//    	System.out.println(end);
-//    	System.out.println(s.substring(start, end));
     	// Base case
     	if(start==end) return true;
     	if(start==end-1) {
