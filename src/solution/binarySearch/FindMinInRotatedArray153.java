@@ -19,9 +19,13 @@ public class FindMinInRotatedArray153 {
     		return binarySearch(nums, left, mid);
     	}
     	// go left hand side
-    	else {
+    	else if (nums[mid] > nums[left]){
     		return binarySearch(nums, mid, right);
-    	} 
+    	}
+    	// min == left, eliminate left 
+    	else {
+    		return binarySearch(nums, left+1, right);
+    	}
     	
     }
 
