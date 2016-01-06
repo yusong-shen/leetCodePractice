@@ -1,4 +1,4 @@
-package solution.arrayString;
+package solution.binarySearch;
 
 /**
  * https://leetcode.com/problems/search-insert-position/
