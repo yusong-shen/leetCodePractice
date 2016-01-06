@@ -24,7 +24,7 @@ public class FisrtBadVersion276 {
     		}
 
     	}
-    	// it will stop 
+    	// because there will always be a bad version = =
 		return l;
         
     }
