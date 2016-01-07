@@ -2,7 +2,7 @@ package solution.dynamicProgramming;
 
 
 
-public class ClimbingStairs {
+public class ClimbingStairs70 {
 
 	
     public int climbStairs(int n) {
@@ -28,7 +28,7 @@ public class ClimbingStairs {
     }
 
 	public static void main(String[] args) {
-		ClimbingStairs test = new ClimbingStairs();
+		ClimbingStairs70 test = new ClimbingStairs70();
 		System.out.println(test.climbStairs(1));
 		System.out.println(test.climbStairs(2));
 		System.out.println(test.climbStairs(3));
