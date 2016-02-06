@@ -27,18 +27,27 @@ For example, after running your query, the above Person table should have the fo
 -- HAVING 
 -- 	COUNT(Email)>1) AS duplicate;
 
-DELETE FROM
-	Person 
-LEFT JOIN 
-	(SELECT 
-	*
-	FROM 
-		Person 
-	GROUP BY 
-		Email
-	HAVING 
-		COUNT(Email)>1) AS duplicate
-ON 
-	P1.Id = duplicate.Id
-WHERE
-	duplicate.Id IS NOT NULL;
+-- DELETE FROM
+-- 	Person 
+-- LEFT JOIN 
+-- 	(SELECT 
+-- 	*
+-- 	FROM 
+-- 		Person 
+-- 	GROUP BY 
+-- 		Email
+-- 	HAVING 
+-- 		COUNT(Email)>1) AS duplicate
+-- ON 
+-- 	P1.Id = duplicate.Id
+-- WHERE
+-- 	duplicate.Id IS NOT NULL;
+
+
+DELETE p1 
+FROM Person p1
+INNER JOIN Person p2
+WHERE p1.Email = p2.Email
+	AND p1.Id > p2.Id;
+
+
