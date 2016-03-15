@@ -10,7 +10,10 @@ package codility;
 public class DecimalZip {
 
 	public static int decimalZip(int A, int B){
-		
+
+        if (A < 0 || A > 100000000) return -1;
+        if (B < 0 || B > 100000000) return -1;
+        
 		int dividerA = 1, dividerB = 1; 
 		int result = 0;
 		
@@ -30,12 +33,10 @@ public class DecimalZip {
 			return (result > 100000000)? -1 : result;
 		}
 		
-		if(dividerA > 100000000) return -1;
 		
 		while(B / dividerB >= 10){
 			dividerB *= 10;
 		}	
-		if(dividerB > 100000000) return -1;
 		
 		while(A > 0 && B > 0){
 			int digitA = A / dividerA;
@@ -93,6 +94,11 @@ public class DecimalZip {
 		System.out.println(result4);
 		System.out.println(result4 == expected4);
 		
+		System.out.println((-1 == decimalZip(-1, 20)));
+		System.out.println((-1 == decimalZip(20, -1)));
+		System.out.println((-1 == decimalZip(223400000, 20)));
+		System.out.println((-1 == decimalZip(20, 223400000)));
+
 	}
 
 }
