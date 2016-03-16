@@ -1,4 +1,4 @@
-package graph;
+package solution.graph;
 
 public class CountComponent323 {
 
