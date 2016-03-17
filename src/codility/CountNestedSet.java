@@ -11,6 +11,78 @@ package codility;
  */
 public class CountNestedSet {
 
+	/* Brute Force*/
+//	public static int solution(int[] A){
+//		int n = A.length;
+//		
+//		if(n <= 0){
+//			return 0;
+//		}
+//		
+//		int maxSet = 1, count =0;
+//		int j = 0, index = 0;
+//		// brute force
+//		for (int i=0; i<n; i++){
+//			index = i;
+//			while(A[index] >= 0){
+//				count ++;
+//				j = index;
+//				index = A[index];
+//				// mark it as visited to avoid infinite loop
+//				A[j] = -1;
+//			}
+//			
+//			maxSet = count > maxSet ? count : maxSet ;
+//			count = 0;
+//		}
+//		
+//		
+//		return maxSet;
+//	}
+
+	
+	public static int[] M;
+	/*
+	 * keep track if computed
+	 */
+	public static int[] flag;
+	/**
+	 * Helper function 
+	 * based on sizeCount(i)=1+sizeCount(a[i])
+	 * @param A
+	 * @param M
+	 * @param i
+	 * @param len
+	 * @return
+	 */
+	public static int sizeCount(int[] A, int i, int len){
+		int count = 1;
+		int j = A[i];
+		flag[i] = 1;
+		
+		if (j < len && j >=0){
+			if (M[j] == 0 && flag[j]==0){
+				count = 1 + sizeCount(A, j, len);
+			}
+			else if (M[j] == 0 && flag[j]==1)
+			{
+				count = 1;
+				M[j] = 1;			
+			}
+			else {
+				count = 1 + M[j];
+			}
+		}
+		
+		M[i] = count;
+		return count;
+	}
+	
+	/**
+	 * Recursion with cache
+	 * @param A
+	 * @return
+	 */
 	public static int solution(int[] A){
 		int n = A.length;
 		
@@ -18,27 +90,25 @@ public class CountNestedSet {
 			return 0;
 		}
 		
-		int maxSet = 1, count =0;
-		int j = 0, index = 0;
-		// brute force
+		int maxSet = 0;
+		M = new int[n];
+		flag = new int[n];
+
 		for (int i=0; i<n; i++){
-			index = i;
-			while(A[index] >= 0){
-				count ++;
-				j = index;
-				index = A[index];
-				// mark it as visited to avoid infinite loop
-				A[j] = -1;
-			}
 			
-			maxSet = count > maxSet ? count : maxSet ;
-			count = 0;
+			if(M[i] == 0){
+				M[i] = sizeCount(A, i, n);
+				if (M[i] > maxSet){
+					maxSet = M[i];
+				}
+				
+			}
 		}
 		
 		
 		return maxSet;
 	}
-
+	
 	public static void main(String[] args) {
 		int[] A = {5, 4, 0, 3, 1, 6, 2};
 		System.out.println(4 == solution(A));
