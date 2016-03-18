@@ -3,6 +3,9 @@
  */
 package hackerrank.twitter;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @author yusong
  *
@@ -10,15 +13,49 @@ package hackerrank.twitter;
 public class DeleteSubstring {
 
 	/**
-	 * 
+	 *  Greedy
 	 * @param s
 	 * @param t
 	 * @return
 	 */
-	public static int solution(String s, String t){
-		return 0;
-	}
+ //	public static int solution(String s, String t){
+//		if(t.length() == 0){
+//			return 0;
+//		}
+//		int count = 0, preIndex = 0;
+//		while(s.length() >= t.length()){
+//			int index = s.indexOf(t, preIndex - t.length());
+//			if(index == -1){
+//				break;
+//			}else{
+//			s = s.substring(0, index) + s.substring(index + t.length());
+//				count ++;
+//				preIndex = index;
+//			}
+//		}
+//		return count;
+//	}
 
+	static Map<String, Integer> m = new HashMap<>();
+	
+	public static int solution(String s, String t){
+	    int ret = 0;
+	    int idx = s.indexOf(t, 0);
+	    while (idx >= 0) {
+	      String ss = s.substring(0, idx) + s.substring(idx + t.length());
+	      if (m.containsKey(ss)) {
+	        ret = Math.max(ret, 1 + m.get(ss));
+	      } else {
+	        int r = solution(ss, t);
+	        ret = Math.max(ret, 1 + r);
+	      }
+	      idx = s.indexOf(t, idx + 1);
+	    }
+	    m.put(s, ret);
+	    return ret;
+	}
+	
+	
 	/**
 	 * @param args
 	 */

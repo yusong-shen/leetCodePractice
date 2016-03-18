@@ -3,14 +3,30 @@
  */
 package hackerrank.twitter;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * @author yusong
  *
  */
 public class CuttingBamboo {
 
-	public static int[] solution(int[] nums){
-		return null;
+	public static List<Integer> solution(int[] nums){
+		List<Integer> result = new ArrayList<Integer>();
+		// sort the array first
+		Arrays.sort(nums);
+		
+		int n = nums.length, curr = 0;
+		for (int i = 0; i < n; i++){
+			if (curr < nums[i]){
+				result.add(nums.length - i);
+				curr = nums[i];
+			}
+		}
+		
+		return result;
 	}
 
 	/**

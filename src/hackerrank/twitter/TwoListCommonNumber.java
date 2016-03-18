@@ -10,7 +10,7 @@ package hackerrank.twitter;
 public class TwoListCommonNumber {
 
 	
-	public static int solution(int a0, int d, int b0, int q){
+	public static int solution(int a0, int d, int b0, int q, int max){
 		return 0;
 	}
 	
@@ -21,7 +21,7 @@ public class TwoListCommonNumber {
 		// 1, 2, 3, 4
 		// 1, 2, 4, 8...
 		// common : 1, 2, 4
-		System.out.println(3 == solution(1, 1, 1, 2));
+		System.out.println(3 == solution(1, 1, 1, 2, 9));
 	}
 
 }
