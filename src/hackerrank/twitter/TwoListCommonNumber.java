@@ -105,6 +105,14 @@ public class TwoListCommonNumber {
 		System.out.println(solution(1, 2, 1, -1, 9));
 		System.out.println(1 == solution(1, 2, 1, -1, 9));
 
+		System.out.println(solution(1, -2, 1, 3, 9));
+		System.out.println(1 == solution(1, -2, 1, 3, 9));
+
+		System.out.println(0 == solution(0, -2, 1, 3, 9));
+		
+		System.out.println(solution(1, -2, 1, -1, 9));
+		System.out.println(2 == solution(1, -2, 1, -1, 9));
+
 	}
 
 }
