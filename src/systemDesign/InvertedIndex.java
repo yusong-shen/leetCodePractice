@@ -1,3 +1,10 @@
+package systemDesign;
+import java.util.*;
+
+class Document {
+    public int id;
+    public String content;
+}
 
 public class InvertedIndex {
 

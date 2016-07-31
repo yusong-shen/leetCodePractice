@@ -1,3 +1,6 @@
+package systemDesign;
+import java.util.*;
+
 public class Memcache {
     // key : [setTime, ttl, value]
     public HashMap<Integer, ArrayList<Integer>> map;
@@ -87,29 +90,29 @@ public class Memcache {
         }
     }
     
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		get(1, 0);
-//		>> 2147483647
-		set(2, 1, 1, 2);
-		get(3, 1);
-//		>> 1
-		get(4, 1);
-//		>> 2147483647
-		incr(5, 1, 1);
-//		>> 2147483647
-		set(6, 1, 3, 0);
-		incr(7, 1, 1);
-//		>> 4
-		decr(8, 1, 1);
-//		>> 3
-		get(9, 1);
-//		>> 3
-		delete(10, 1);
-		get(11, 1);
-//		>> 2147483647
-		incr(12, 1, 1);
-//		>> 2147483647
-
-	}
+//	public static void main(String[] args) {
+//		// TODO Auto-generated method stub
+//		get(1, 0);
+////		>> 2147483647
+//		set(2, 1, 1, 2);
+//		get(3, 1);
+////		>> 1
+//		get(4, 1);
+////		>> 2147483647
+//		incr(5, 1, 1);
+////		>> 2147483647
+//		set(6, 1, 3, 0);
+//		incr(7, 1, 1);
+////		>> 4
+//		decr(8, 1, 1);
+////		>> 3
+//		get(9, 1);
+////		>> 3
+//		delete(10, 1);
+//		get(11, 1);
+////		>> 2147483647
+//		incr(12, 1, 1);
+////		>> 2147483647
+//
+//	}
 }

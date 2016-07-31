@@ -1,9 +1,5 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.NavigableMap;
-import java.util.TreeMap;
+package systemDesign;
+import java.util.*;
 
 /**
  * Definition of Column:
