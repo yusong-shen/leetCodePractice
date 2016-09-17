@@ -27,7 +27,7 @@ class Job {
 }
 
 // sort with priority and startTime
-class JobComparator implements Comparator<Job> {
+class PriorityFirstComparator implements Comparator<Job> {
 
 	@Override
 	public int compare(Job o1, Job o2) {
@@ -42,6 +42,23 @@ class JobComparator implements Comparator<Job> {
 	}
 	
 }
+
+class TimeFirstComparator implements Comparator<Job> {
+
+	@Override
+	public int compare(Job o1, Job o2) {
+		// TODO Auto-generated method stub
+		if (o1.startTime < o2.startTime) {
+			return -1;
+		} else if (o1.startTime > o2.startTime) {
+			return 1;
+		} else {
+			return Integer.compare(o1.priority, o2.priority);
+		}
+	}
+	
+}
+
 public class ScheduleAndroid {
 
 	public ScheduleAndroid() {
@@ -51,13 +68,13 @@ public class ScheduleAndroid {
 	public static void schedule(ArrayList<String> workers, ArrayList<Job> jobs) {
 		int numWorkers = workers.size();
 		int numJobs = jobs.size();
-		Collections.sort(jobs, new JobComparator());
+		Collections.sort(jobs, new TimeFirstComparator());
 		int time = 0;
 		for (Job job : jobs) {
-			System.out.println(job);
+//			System.out.println(job);
 			int round = (int) Math.ceil(job.numTasks / (numWorkers + 0.0));
 			int complete = round * job.neededTime;
-			System.out.format("round : %d, complete time : %d\n", round, complete);
+//			System.out.format("round : %d, complete time : %d\n", round, complete);
 			// if the job can't be started yet, then wait
 			int start = (time > job.startTime) ? time : job.startTime; 
 			// start working at the same time
