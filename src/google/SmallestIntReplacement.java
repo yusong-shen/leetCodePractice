@@ -78,6 +78,8 @@ public class SmallestIntReplacement {
 		System.out.println(100000000 == solution(X));	
 		X = 33333;
 		System.out.println(3333 == solution(X));
+		X = 17854;
+		System.out.println(1784 == solution(X));
 	}
 
 }
